@@ -26,7 +26,7 @@ Reading data from Druid
 
 ## Loading Data into Druid 
 
-### Using CURL
+### Sample Data to use
 
 We'll use this sample data for our testing
 
@@ -35,6 +35,18 @@ We'll use this sample data for our testing
 {"time": "2015-09-01T01:00:00Z", "url": "/", "user": "bob", "latencyMs": 11}
 {"time": "2015-09-01T01:30:00Z", "url": "/foo/bar", "user": "bob", "latencyMs": 45}
 ```
+> General rule of thumb: Timestamps are mandatory, strings are dimensions and integer values are metrics.
+> In our example, *time* represents timestamp, *url* and *user* represent dimensions and *latencyMs* is the only metric
+
+
+
+
+
+
+
+
+
+
 
 
 
