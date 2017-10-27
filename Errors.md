@@ -29,5 +29,23 @@ Caused by: java.sql.SQLException: Cannot create PoolableConnectionFactory (java.
 ```
 
 
-### Resolution
+### Resolution/Workaround
 
+Error is originated because the metastore port for Druid i.e. 1527 (Derby) is not up and listening. For production use, its better to use Mysql or Postgres as the choice of databases, however, this would require the configuration mentioned in this link:
+
+> http://druid.io/docs/latest/development/extensions-core/mysql.html
+
+*NOTE* All the properties are also available via Ambari. When using multiple hosts for Druid, ensure that all the nodes in the Druid cluster can talk to the metastore host. This requires few things:
+
+- Make an entry in the mysql DB as this
+```
+GRANT ALL ON druid.* TO 'druid'@'localhost' IDENTIFIED BY 'diurd';
+```
+- Download the mysql JDBC jar using this link http://dev.mysql.com/downloads/mysql/
+- Copy the JAR on all the nodes where Druid services are installed in the following location
+> /usr/hdp/current/druid-broker/extensions/mysql-metadata-storage
+
+- To test if your setup is working, you can run this (of course, replace the version of jdk, hostname and password)
+```
+/usr/jdk64/jdk1.8.0_77/bin/java -cp /usr/lib/ambari-agent/DBConnectionVerification.jar:/usr/hdp/current/druid-broker/extensions/mysql-metadata-storage/* org.apache.ambari.server.DBConnectionVerification 'jdbc:mysql://xlhost1.openstacklocal:3306/druid?createDatabaseIfNotExist=true' druid changeme com.mysql.jdbc.Driver
+```
