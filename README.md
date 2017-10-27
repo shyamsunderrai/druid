@@ -30,6 +30,11 @@ Reading data from Druid
 
 We'll use this sample data for our testing
 
--- {"time": "2015-09-01T00:00:00Z", "url": "/foo/bar", "user": "alice", "latencyMs": 32}
--- {"time": "2015-09-01T01:00:00Z", "url": "/", "user": "bob", "latencyMs": 11}
--- {"time": "2015-09-01T01:30:00Z", "url": "/foo/bar", "user": "bob", "latencyMs": 45}
+```
+{"time": "2015-09-01T00:00:00Z", "url": "/foo/bar", "user": "alice", "latencyMs": 32}
+{"time": "2015-09-01T01:00:00Z", "url": "/", "user": "bob", "latencyMs": 11}
+{"time": "2015-09-01T01:30:00Z", "url": "/foo/bar", "user": "bob", "latencyMs": 45}
+```
+
+
+
