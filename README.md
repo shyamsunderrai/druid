@@ -51,7 +51,9 @@ hdfs dfs -put index.json /apps/druid/warehouse
 ```
 - Data can be loaded through overlord hostname and port as endpoint 
 ```
-curl -X 'POST' -H 'Content-Type:application/json' -d@load_from_hdfs.json xlhost1.openstacklocal:8090/druid/indexer/v1/task 
+[druid@xlhost1 ~]$ curl -X 'POST' -H 'Content-Type:application/json' -d@load_from_hdfs.json xlhost1.openstacklocal:8090/druid/indexer/v1/task
+{"task":"index_hadoop_sample_2017-10-27T06:30:01.462Z"}
+[druid@xlhost1 ~]$  
 ```
 
 
