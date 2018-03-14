@@ -55,7 +55,29 @@ hdfs dfs -put index.json /apps/druid/warehouse
 {"task":"index_hadoop_sample_2017-10-27T06:30:01.462Z"}
 [druid@xlhost1 ~]$  
 ```
+Searching/querying the loaded data requires a POST request in JSON format or depending on the type of data being loaded/read.
 
+```
+{
+  "queryType": "search",
+  "dataSource": "wikipedia_20180313",
+  "granularity": "day",
+  "searchDimensions": [
+    "page",
+    "language"
+  ],
+  "query": {
+    "type": "insensitive_contains",
+    "value": "Atractus"
+  },
+  "sort" : {
+    "type": "lexicographic"
+  },
+  "intervals": [
+    "2015-09-12T00:00:00.000Z/2015-09-13T00:00:00.000Z"
+  ]
+}
+```
 
 
 
