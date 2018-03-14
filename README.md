@@ -79,8 +79,38 @@ Searching/querying the loaded data requires a POST request in JSON format or dep
 }
 ```
 
+- Query is executed using the POST method like this 
+```
+[druid@xlautomation-1 ~]$  curl -X POST 'xlautomation-1.h.c:8082/druid/v2/?pretty' -H 'Content-Type:application/json' -d @search.json
+```
+:Result
 
-
+```
+[ {
+  "timestamp" : "2015-09-12T00:00:00.000Z",
+  "result" : [ {
+    "dimension" : "page",
+    "value" : "Atractus apophis",
+    "count" : 1
+  }, {
+    "dimension" : "page",
+    "value" : "Atractus bocki",
+    "count" : 1
+  }, {
+    "dimension" : "page",
+    "value" : "Atractus duboisi",
+    "count" : 1
+  }, {
+    "dimension" : "page",
+    "value" : "Atractus edioi",
+    "count" : 1
+  }, {
+    "dimension" : "page",
+    "value" : "Atractus flammigerus",
+    "count" : 1
+  } ]
+} ]
+```
 
 
 
